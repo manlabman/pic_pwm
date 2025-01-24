@@ -76,11 +76,12 @@ void main(void)
 
             temp_last_target = temp_target
             temp_target = 0;
-            i
 
 
         }
-
+        pidstate.Fdb = _IQ(temp_target);
+        pid_reg3_calc(&pidstate);
+        Epwm2Regs.CMPA.half.CMPA = pidstate.Out;   //1 .. PWMPPERIOD-1
 
     
     }
@@ -88,7 +89,20 @@ void main(void)
 
 }
 
+//transmit a character from the SCI
+void scia_xmit(int a)
+{
+    while (sciaRegs.SCIFFTX.bit.TXFFST != 0){}
+    SciaRegs.SCITXBUF=a;
 
+
+}
+void scia_msg(char * msg)
+{
+    int i;g
+    for(i=0; msg[i] != '\0'; i++) scia_xmit msg)
+    
+}
 
 
 
