@@ -81,7 +81,7 @@ void main(void)
         }
         pidstate.Fdb = _IQ(temp_target);
         pid_reg3_calc(&pidstate);
-        Epwm2Regs.CMPA.half.CMPA = pidstate.Out;   //1 .. PWMPPERIOD-1
+        Epwm2Regs.CMPA.half.CMPA = pidstate.Out;   //1 .. PWM_PERIOD-1
 
     
     }
@@ -99,10 +99,13 @@ void scia_xmit(int a)
 }
 void scia_msg(char * msg)
 {
-    int i;g
-    for(i=0; msg[i] != '\0'; i++) scia_xmit msg)
-    
+    int i;
+    for(i=0; msg[i] != '\0'; i++) scia_xmit msg)    
 }
+//========================================================
+//No more.
+//===========================================================================
+
 
 
 
